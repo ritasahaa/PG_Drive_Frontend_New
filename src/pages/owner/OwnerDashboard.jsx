@@ -105,7 +105,7 @@ const OwnerDashboard = () => {
       setLoading(true);
       try {
         // Fetch dashboard stats
-        const dashboardRes = await axios.get('http://localhost:5000/api/owners/dashboard');
+  const dashboardRes = await axios.get('https://pg-drive-backend-new.onrender.com/api/owners/dashboard');
         if (dashboardRes.data.dashboard) {
           setStats(prevStats => ({
             ...prevStats,
@@ -120,13 +120,13 @@ const OwnerDashboard = () => {
         }
 
         // Fetch recent bookings
-        const bookingsRes = await axios.get('http://localhost:5000/api/owners/recent-bookings');
+  const bookingsRes = await axios.get('https://pg-drive-backend-new.onrender.com/api/owners/recent-bookings');
         if (bookingsRes.data.bookings) {
           setRecentBookings(bookingsRes.data.bookings);
         }
 
         // Fetch recent activities
-        const activitiesRes = await axios.get('http://localhost:5000/api/owners/recent-activities');
+  const activitiesRes = await axios.get('https://pg-drive-backend-new.onrender.com/api/owners/recent-activities');
         if (activitiesRes.data.activities) {
           setRecentActivities(activitiesRes.data.activities.map(activity => ({
             ...activity,
@@ -136,7 +136,7 @@ const OwnerDashboard = () => {
         }
 
         // Fetch notifications
-        const notificationsRes = await axios.get('http://localhost:5000/api/owners/notifications');
+  const notificationsRes = await axios.get('https://pg-drive-backend-new.onrender.com/api/owners/notifications');
         if (notificationsRes.data.notifications) {
           setNotifications(notificationsRes.data.notifications);
           setStats(prevStats => ({

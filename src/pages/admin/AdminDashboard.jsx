@@ -108,7 +108,7 @@ const AdminDashboard = () => {
         const headers = token ? { Authorization: `Bearer ${token}` } : {};
         
         // Fetch admin dashboard stats
-        const dashboardRes = await axios.get('http://localhost:5000/api/admin/dashboard', { headers });
+  const dashboardRes = await axios.get('https://pg-drive-backend-new.onrender.com/api/admin/dashboard', { headers });
         
         if (dashboardRes.data.dashboard) {
           setStats(prevStats => ({
@@ -125,7 +125,7 @@ const AdminDashboard = () => {
         }
 
         // Fetch recent activities
-        const activitiesRes = await axios.get('http://localhost:5000/api/admin/recent-activities', { headers });
+  const activitiesRes = await axios.get('https://pg-drive-backend-new.onrender.com/api/admin/recent-activities', { headers });
         if (activitiesRes.data.activities) {
           setRecentActivities(activitiesRes.data.activities.map(activity => ({
             ...activity,
@@ -135,13 +135,13 @@ const AdminDashboard = () => {
         }
 
         // Fetch pending approvals
-        const approvalsRes = await axios.get('http://localhost:5000/api/admin/pending-approvals', { headers });
+  const approvalsRes = await axios.get('https://pg-drive-backend-new.onrender.com/api/admin/pending-approvals', { headers });
         if (approvalsRes.data.approvals) {
           setPendingApprovals(approvalsRes.data.approvals);
         }
 
         // Fetch system alerts
-        const alertsRes = await axios.get('http://localhost:5000/api/admin/system-alerts', { headers });
+  const alertsRes = await axios.get('https://pg-drive-backend-new.onrender.com/api/admin/system-alerts', { headers });
         if (alertsRes.data.alerts) {
           setSystemAlerts(alertsRes.data.alerts);
         }

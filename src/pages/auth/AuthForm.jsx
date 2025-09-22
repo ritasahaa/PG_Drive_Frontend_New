@@ -988,7 +988,7 @@ const AuthForm = ({
                         if (emailVerified) return; // Prevent action if already verified
                         // First check if email already exists
                         try {
-                          const response = await fetch('http://localhost:5000/api/otp/check-email', {
+                          const response = await fetch('https://pg-drive-backend-new.onrender.com/api/otp/check-email', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({ email: formData.email, role })
@@ -1675,7 +1675,7 @@ export const ForgotPasswordForm = ({ role = 'user' }) => {
     setOtpSuccess('');
     setFormData(prev => ({ ...prev, otp: '' }));
     try {
-      const res = await fetch(`http://localhost:5000/api/forgot-password`, {
+  const res = await fetch(`https://pg-drive-backend-new.onrender.com/api/forgot-password`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: formData.email, role })
@@ -1773,7 +1773,7 @@ export const ForgotPasswordForm = ({ role = 'user' }) => {
     setShowOtpError(false);
     try {
       const cleanOtp = otpToCheck.replace(/\s/g, '');
-      const res = await fetch(`http://localhost:5000/api/otp/verify-otp`, {
+  const res = await fetch(`https://pg-drive-backend-new.onrender.com/api/otp/verify-otp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: formData.email, otp: cleanOtp, role })
@@ -1830,7 +1830,7 @@ export const ForgotPasswordForm = ({ role = 'user' }) => {
     
     try {
       const cleanOtp = formData.otp.replace(/\s/g, '');
-      const res = await fetch(`http://localhost:5000/api/forgot-password/reset-password`, {
+  const res = await fetch(`https://pg-drive-backend-new.onrender.com/api/forgot-password/reset-password`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -2435,7 +2435,7 @@ async function sendOtpApi(email, role = 'user') {
   if (role === 'admin') {
     throw new Error('Admin should use dedicated OTP system');
   }
-  const response = await fetch('http://localhost:5000/api/otp/send-otp', {
+  const response = await fetch('https://pg-drive-backend-new.onrender.com/api/otp/send-otp', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, role })
@@ -2457,7 +2457,7 @@ async function sendOtpApi(email, role = 'user') {
 
 async function verifyOtpApi(email, otp) {
   // This function should not be used for admin
-  const response = await fetch('http://localhost:5000/api/otp/verify-otp', {
+  const response = await fetch('https://pg-drive-backend-new.onrender.com/api/otp/verify-otp', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, otp })

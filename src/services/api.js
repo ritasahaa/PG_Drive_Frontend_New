@@ -1,7 +1,7 @@
 // Centralized API configuration
 const API_BASE_URL = process.env.NODE_ENV === 'production' 
-  ? process.env.REACT_APP_API_URL || 'https://your-production-api.com'
-  : 'http://localhost:5000';
+  ? process.env.REACT_APP_API_URL || 'https://pg-drive-backend-new.onrender.com'
+  : 'https://pg-drive-backend-new.onrender.com';
 
 class ApiService {
   constructor() {
